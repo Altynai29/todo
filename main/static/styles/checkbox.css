@@ -1,5 +1,5 @@
  .checkbox_container {
-    display: flex;
+    display: block;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
@@ -23,7 +23,7 @@
   
   .checkmark {
     position: absolute;
-    top: 0;
+    top: -7px;
     left: 0;
     height: 25px;
     width: 25px;
