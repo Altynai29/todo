@@ -11,7 +11,24 @@ def test(request):
 
 
 def books(request):
-    return render(request, "books.html")
+    books = Book.objects.all()
+    return render(request, "books.html", {"books": books})
+
+def add_book(request):
+    form = request.POST
+    book = Book(
+        title=form["title"],
+        subtitle=form["subtitle"],
+        description=form["description"],
+        price=form["price"],
+        genre=["genre"],
+        author=["author"],
+        year=form["date"][:10]
+    )
+
+    book.save()
+
+    return redirect(books)
 
 
 def second(request):
