@@ -29,6 +29,7 @@ urlpatterns = [
     path("lesson1", lesson1, name="lesson1"),
     path("lesson2", lesson2, name="lesson2"),
     path("lesson3", lesson3, name="lesson3"),
+    path("books/", books, name="books"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
