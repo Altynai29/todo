@@ -21,6 +21,18 @@ def delete_todo(request, id):
     todo.delete()
     return redirect(test)
 
+def mark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = not todo.is_favorite
+    todo.save()
+    return redirect(test)
+
+
+# def unmark_todo(request, id):
+#     todo = ToDo.objects.get(id=id)
+#     todo.is_favorite = False
+#     todo.save()
+#     return redirect(test)
 
 def books(request):
     books = Book.objects.all()
@@ -42,6 +54,10 @@ def add_book(request):
 
     return redirect(books)
 
+def delete_book(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect(books)
 
 def second(request):
     return HttpResponse("test 2 page")
@@ -60,6 +76,10 @@ def lesson3(request):
     return render(request, "lesson3.html")
 
 
-
+# def close_todo(request, id):
+#     todo = ToDo.objects.get(id=id)
+#     todo.is_closed = not todo.is_closed
+#     todo.save()
+#     return redirect(test)
 
 # Create your views here.

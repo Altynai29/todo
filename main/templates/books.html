@@ -1,36 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Book_store</title>
+    <link rel="stylesheet" href="{% static 'styles/books.css' %}" />
 </head>
 
 <body>
     <form action="{% url 'add-book' %}" method="POST">
         {% csrf_token %}
         <h2>Welcome book store</h2>
-
-        <input type="text" name="title" placeholder="title"><br><br>
-        <input type="text" name="subtitle" placeholder="subtitle"><br><br>
-        <input type="text" name="description" placeholder="description"><br><br>
-        <input type="number" name="price" placeholder="price"><br><br>
-        <input type="text" name="genre" placeholder="genre"><br><br>
-        <input type="text" name="author" placeholder="author"><br><br>
-        <input type="datetime-local" name="date" placeholder="year"><br><br>
-        <button>Add</button>
+        <div class="create_container">
+            <input type="text" name="title" placeholder="title"><br><br>
+            <input type="text" name="subtitle" placeholder="subtitle"><br><br>
+            <input type="text" name="description" placeholder="description"><br><br>
+            <input type="number" name="price" placeholder="price"><br><br>
+            <input type="text" name="genre" placeholder="genre"><br><br>
+            <input type="text" name="author" placeholder="author"><br><br>
+            <input type="datetime-local" name="date" placeholder="year"><br><br>
+            <button class="create_button">Add</button> 
+        </div>
+        
 
     </form>
 
     {% for book in books %}
-        <div>
+        <div class="book_container">
             <h3>{{ book.title }} - {{ book.author }}</h3>
-            <h4>{{ book.price }}</h4>
+            <h3>{{ book.price }}</h3>
+            <a href="{% url 'delete-book' book.id  %}"><button class="delete_button">Delete</button> </a>
         </div>
 
     {% endfor %}
- 
+    
 </body>
 
 </html>
