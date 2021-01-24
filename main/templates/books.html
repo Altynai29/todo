@@ -31,6 +31,7 @@
         <div class="book_container">
             <h3>{{ book.title }} - {{ book.author }}</h3>
             <h3>{{ book.price }}</h3>
+            <a href="{% url 'marked-book' book.id  %}"><button class="marked_button">Marked</button> </a>
             <a href="{% url 'delete-book' book.id  %}"><button class="delete_button">Delete</button> </a>
         </div>
 

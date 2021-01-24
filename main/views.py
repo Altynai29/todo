@@ -59,6 +59,12 @@ def delete_book(request, id):
     book.delete()
     return redirect(books)
 
+def marked_book(request, id):
+    marked = Book.objects.get(id=id)
+    marked.is_favorite = True
+    marked.save()
+    return redirect(books)
+
 def second(request):
     return HttpResponse("test 2 page")
 
