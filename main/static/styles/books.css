@@ -26,8 +26,8 @@ input{
 
 .create_button{
     padding: 12px 20px;
-    background-color: rosybrown;
-    border: 1px solid  rosybrown;
+    background-color: teal;
+    border: 1px solid  black;
     color: white;
     font-size: 18px;
     text-transform: uppercase;
@@ -45,8 +45,3 @@ input{
     color: royalblue;
 }
 
-.marked-button{
-    background-color: tomato;
-    border: 2px solid #fad66a;
-    
-}

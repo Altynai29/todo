@@ -45,8 +45,8 @@ def add_book(request):
         subtitle=form["subtitle"],
         description=form["description"],
         price=form["price"],
-        genre=["genre"],
-        author=["author"],
+        genre=form["genre"],
+        author=form["author"],
         year=form["date"][:10]
     )
 
@@ -64,6 +64,7 @@ def marked_book(request, id):
     marked.is_favorite = True
     marked.save()
     return redirect(books)
+
 
 def second(request):
     return HttpResponse("test 2 page")
