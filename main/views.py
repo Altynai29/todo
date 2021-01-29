@@ -83,6 +83,13 @@ def lesson3(request):
     return render(request, "lesson3.html")
 
 
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = not todo.is_closed
+    todo.save()
+    return redirect(test)
+
+
 # def close_todo(request, id):
 #     todo = ToDo.objects.get(id=id)
 #     todo.is_closed = not todo.is_closed
